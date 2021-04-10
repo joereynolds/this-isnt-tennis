@@ -1,0 +1,35 @@
+go.property('speed', 400)
+
+function init(self)
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+	self.direction = vmath.vector3(1, 0, 0)
+end
+
+
+function update(self, dt)
+	local pos = go.get_position()
+
+	pos = pos + self.direction * self.speed * dt
+
+	go.set_position(pos)
+
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") then
+
+		-- if message.normal.y ~= 0 then
+		-- 	self.direction.y = -self.direction.y
+		-- end
+		
+		if message.normal.x ~= 0 then
+			self.direction.x = -self.direction.x
+		end
+
+		local newpos = go.get_position() + message.normal * message.distance
+		go.set_position(newpos)
+	end
+	
+end

@@ -1,0 +1,40 @@
+key_trigger {
+  input: KEY_W
+  action: "MOVE_UP"
+}
+key_trigger {
+  input: KEY_A
+  action: "MOVE_LEFT"
+}
+key_trigger {
+  input: KEY_S
+  action: "MOVE_DOWN"
+}
+key_trigger {
+  input: KEY_D
+  action: "MOVE_RIGHT"
+}
+key_trigger {
+  input: KEY_SPACE
+  action: "MOVE_HIT"
+}
+key_trigger {
+  input: KEY_UP
+  action: "MOVE_UP"
+}
+key_trigger {
+  input: KEY_DOWN
+  action: "MOVE_DOWN"
+}
+key_trigger {
+  input: KEY_LEFT
+  action: "MOVE_LEFT"
+}
+key_trigger {
+  input: KEY_RIGHT
+  action: "MOVE_RIGHT"
+}
+mouse_trigger {
+  input: MOUSE_BUTTON_LEFT
+  action: "touch"
+}

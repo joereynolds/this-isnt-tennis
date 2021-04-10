@@ -1,0 +1,46 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.input = vmath.vector3()
+end
+
+function update(self, dt)
+	local speed = 100
+	local pos = go.get_position()
+	pos = pos + self.input * speed * dt
+	go.set_position(pos)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") then
+		local newpos = go.get_position() + message.normal * message.distance
+		go.set_position(newpos)
+	 end
+end
+
+function on_input(self, action_id, action)
+
+	if action_id == hash("MOVE_DOWN") then 
+		self.input.y =  -1
+	end
+
+	if action_id == hash("MOVE_UP") then
+		self.input.y = 1 
+	end
+
+	if action_id == hash("MOVE_LEFT") then
+		self.input.x = -1
+	end
+
+	if action_id == hash("MOVE_RIGHT") then
+		self.input.x = 1
+	end
+
+	if action_id == hash("MOVE_HIT")  then
+		print("Hit")
+	end
+
+	if action.released then
+		self.input.x = 0
+		self.input.y = 0
+	end
+end

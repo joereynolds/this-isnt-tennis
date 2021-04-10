@@ -1,0 +1,26 @@
+local function load_game()
+	msg.post('go#gameproxy', 'load')
+	msg.post('go#gameproxy', 'enable')
+end
+
+local function load_menu()
+	msg.post('go#menuproxy', 'load')
+	msg.post('go#menuproxy', 'enable')
+end
+
+local function unload_menu()
+	msg.post('go#menuproxy', 'unload')
+end
+	
+function init(self)
+	msg.post('.', 'acquire_input_focus')
+	-- Have the menu loaded by default
+	load_menu()
+end
+
+function on_message(self, message_id, message)
+	if message_id == hash('start_game') then
+		unload_menu()
+		load_game()
+	end
+end

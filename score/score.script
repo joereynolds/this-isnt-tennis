@@ -1,0 +1,15 @@
+local function update_score()
+	label.set_text("label", 0)
+end
+
+function init(self)
+	self.score = 0
+	update_score()
+end
+
+function on_message(self, message_id, message, sender)
+	-- if message_id == hash("update_score") then
+	-- 	self.score = self.score + 1
+	-- 	update_score()
+	-- end
+end

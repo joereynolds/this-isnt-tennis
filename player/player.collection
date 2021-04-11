@@ -1,7 +1,7 @@
 name: "default"
 scale_along_z: 0
 embedded_instances {
-  id: "go"
+  id: "player"
   data: "components {\n"
   "  id: \"player\"\n"
   "  component: \"/player/player.script\"\n"
@@ -48,6 +48,7 @@ embedded_instances {
   "group: \\\"player\\\"\\n"
   "mask: \\\"net\\\"\\n"
   "mask: \\\"ball\\\"\\n"
+  "mask: \\\"walls\\\"\\n"
   "embedded_collision_shape {\\n"
   "  shapes {\\n"
   "    shape_type: TYPE_BOX\\n"

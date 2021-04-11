@@ -1,5 +1,5 @@
 [project]
-title = this-isnt-tennis-actual
+title = This isn't Tennis
 dependencies = https://github.com/rgrams/rendercam/archive/v1.0.1.zip
 
 [bootstrap]

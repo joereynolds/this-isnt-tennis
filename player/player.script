@@ -1,3 +1,5 @@
+go.property("is_player_two", true)
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.input = vmath.vector3()
@@ -19,6 +21,8 @@ end
 
 function on_input(self, action_id, action)
 
+	pprint(go.get_id())
+	
 	if action_id == hash("MOVE_DOWN") then 
 		self.input.y =  -1
 	end

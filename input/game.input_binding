@@ -1,18 +1,18 @@
 key_trigger {
   input: KEY_W
-  action: "MOVE_UP"
+  action: "MOVE_UP_PLAYER_2"
 }
 key_trigger {
   input: KEY_A
-  action: "MOVE_LEFT"
+  action: "MOVE_LEFT_PLAYER_2"
 }
 key_trigger {
   input: KEY_S
-  action: "MOVE_DOWN"
+  action: "MOVE_DOWN_PLAYER_2"
 }
 key_trigger {
   input: KEY_D
-  action: "MOVE_RIGHT"
+  action: "MOVE_RIGHT_PLAYER_2"
 }
 key_trigger {
   input: KEY_SPACE

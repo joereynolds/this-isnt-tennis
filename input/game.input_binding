@@ -34,6 +34,10 @@ key_trigger {
   input: KEY_RIGHT
   action: "MOVE_RIGHT"
 }
+key_trigger {
+  input: KEY_ESC
+  action: "OPEN_MENU"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"

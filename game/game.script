@@ -4,6 +4,7 @@ local function countdown(label_url, seconds)
 		label.set_text(label_url, seconds)
 		-- cancel timer when countdown reaches 0
 		if seconds == 0 then
+			msg.post('loader:/go#loader', 'end_level')
 			timer.cancel(handle)
 		end
 	end)

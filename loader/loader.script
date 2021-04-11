@@ -3,6 +3,10 @@ local function load_game()
 	msg.post('go#gameproxy', 'enable')
 end
 
+local function unload_game()
+	msg.post('go#gameproxy', 'unload')
+end
+
 local function load_menu()
 	msg.post('go#menuproxy', 'load')
 	msg.post('go#menuproxy', 'enable')
@@ -10,6 +14,11 @@ end
 
 local function unload_menu()
 	msg.post('go#menuproxy', 'unload')
+end
+
+local function load_upgrade_screen()
+	msg.post('go#upgradeproxy', 'load')
+	msg.post('go#upgradeproxy', 'enable')
 end
 	
 function init(self)
@@ -23,4 +32,9 @@ function on_message(self, message_id, message)
 		unload_menu()
 		load_game()
 	end
+
+	if message_id == hash('end_level') then
+		unload_game()
+		load_upgrade_screen()
+	end 
 end

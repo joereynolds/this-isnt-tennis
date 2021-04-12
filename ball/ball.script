@@ -31,7 +31,14 @@ function init(self)
 end
 
 function update(self, dt)
+	if self.is_resetting then
+		-- If we are resetting, don't handle any physics/collisions
+		msg.post("go#collisionobject", "disable")
+	end
+	
 	if not self.is_resetting then
+		msg.post("go#collisionobject", "enable")
+		
 		local pos = go.get_position()
 		pos = pos + self.direction * self.speed * dt
 
@@ -43,7 +50,7 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("contact_point_response") then
+	if message_id == hash("contact_point_response") and not self.is_resetting then
 		particlefx.play("#dust")
 		
 		if message.normal.y ~= 0 then

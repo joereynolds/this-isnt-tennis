@@ -1,8 +1,16 @@
+local rendercam = require "rendercam.rendercam"
+
 local function countdown(label_url, seconds)
 	timer.delay(1, true, function(self, handle, time_elapsed)
 		seconds = seconds - 1
 		label.set_text(label_url, seconds)
 		-- cancel timer when countdown reaches 0
+
+		if seconds <= 10 then
+			-- Intense shakes when it's about to go down
+			rendercam.shake(math.abs(-10 + seconds), 3)
+		end
+		
 		if seconds == 0 then
 			msg.post('loader:/go#loader', 'end_level')
 			timer.cancel(handle)

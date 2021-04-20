@@ -69,8 +69,12 @@ function on_message(self, message_id, message, sender)
 		local newpos = go.get_position() + message.normal * message.distance
 		go.set_position(newpos)
 
-		
-		-- msg.post("score", "update_score")
+		if message.other_id == hash("/player-one") then
+			msg.post("/player-one-score", "update_score")
+		else
+			msg.post("/player-two-score", "update_score")
+		end
+
 	end
 	
 end

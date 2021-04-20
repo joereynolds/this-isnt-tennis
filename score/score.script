@@ -1,15 +1,13 @@
-local function update_score()
-	label.set_text("label", 0)
-end
+go.property("is_player_two", false)
 
 function init(self)
 	self.score = 0
-	update_score()
+	label.set_text("#label", self.score)
 end
 
 function on_message(self, message_id, message, sender)
-	-- if message_id == hash("update_score") then
-	-- 	self.score = self.score + 1
-	-- 	update_score()
-	-- end
+	if message_id == hash("update_score") then
+		self.score = self.score + 1
+		label.set_text("#label", self.score)
+	end
 end
